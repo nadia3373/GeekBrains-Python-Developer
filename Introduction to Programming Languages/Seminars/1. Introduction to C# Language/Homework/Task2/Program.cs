@@ -6,4 +6,4 @@ int num1 = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите второе число: ");
 int num2 = Convert.ToInt32(Console.ReadLine());
 // Отобразить максимальное из двух значений.
-Console.WriteLine("Большее из двух чисел: " + Math.Max(num1, num2));
+Console.WriteLine(num1 == num2 ? "Оба числа равны" : "Большее из двух чисел: " + Math.Max(num1, num2) + ", меньшее: " + Math.Min(num1, num2));
