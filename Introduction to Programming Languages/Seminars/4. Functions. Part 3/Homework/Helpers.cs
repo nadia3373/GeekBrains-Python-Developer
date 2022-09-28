@@ -12,7 +12,7 @@ namespace Homework
         public static int[] PopulateArray(int[] arr)
         {
             Random random = new Random();
-            for (int count = 0; count < arr.Length; count++) arr[count] = random.Next(Int32.MinValue, Int32.MaxValue);
+            for (int count = 0; count < arr.Length; count++) arr[count] = random.Next(Int32.MinValue + 1, Int32.MaxValue);
             return arr;
         }
 
