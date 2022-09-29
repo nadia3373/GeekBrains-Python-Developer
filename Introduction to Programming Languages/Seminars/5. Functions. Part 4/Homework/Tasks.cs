@@ -22,7 +22,7 @@ namespace Homework
             Helpers.PopulateArray(numbers, -99, 100);
             Console.WriteLine("Заполненный массив: ");
             Helpers.PrintArray(numbers);
-            Console.WriteLine($"Сумма элементов, стоящих на нечётных позициях = {Helpers.CountElements(numbers, "index", "odd")}");
+            Console.WriteLine($"Сумма элементов с нечётными индексами = {Helpers.CountElements(numbers, "index", "odd")}");
             Helpers.Hashes();
         }
 
