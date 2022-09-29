@@ -2,12 +2,6 @@ namespace Extras
 {
     class Helpers
     {
-        public static bool CheckIfPalindrome(int[] arr)
-        {
-            for (int count = 1; count <= arr.Length / 2; count++) if (arr[count - 1] != arr[arr.Length - count]) return false;
-            return true;
-        }
-
         public static int Copy(int number, int numeration)
         {
             int result = 0;
