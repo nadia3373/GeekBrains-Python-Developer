@@ -23,13 +23,6 @@ namespace Extras
             return counts;
         }
 
-        public static void Hashes()
-        {
-            Console.WriteLine();
-            Console.WriteLine("####################################################################################################");
-            Console.WriteLine();
-        }
-
         public static void FillArray(int[] arr, int[] quantity = null, string type = null)
         {
             Random random = new Random();
@@ -61,6 +54,13 @@ namespace Extras
                 }
             }
             else for (int count = 0; count < arr.Length; count++) arr[count] = random.Next(1, 100);
+        }
+
+        public static void Hashes()
+        {
+            Console.WriteLine();
+            Console.WriteLine("####################################################################################################");
+            Console.WriteLine();
         }
 
         public static void PrintArray<T>(T[] arr)
