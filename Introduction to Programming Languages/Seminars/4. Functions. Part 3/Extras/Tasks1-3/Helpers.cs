@@ -23,11 +23,10 @@ namespace Extras
             return counts;
         }
 
-        public static int[] FillArray(int[] arr)
+        public static void FillArray(int[] arr)
         {
             Random random = new Random();
             for (int count = 0; count < arr.Length; count++) arr[count] = random.Next(1, 100);
-            return arr;
         }
 
         public static void Hashes()
@@ -37,7 +36,7 @@ namespace Extras
             Console.WriteLine();
         }
 
-        public static char[] PopulateArray(char[] arr, int[] quantity, string type)
+        public static void PopulateArray(char[] arr, int[] quantity, string type)
         {
             for (int count = 0; count < arr.Length; count++) arr[count] = '.';
             Random random = new Random();
@@ -69,7 +68,6 @@ namespace Extras
                 else arr[count] = choice;
                 quantity[(int)choice - 48]--;
             }
-            return arr;
         }
 
         public static void PrintArray<T>(T[] arr)

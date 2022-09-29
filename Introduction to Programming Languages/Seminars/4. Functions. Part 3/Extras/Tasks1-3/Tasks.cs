@@ -42,7 +42,8 @@ namespace Extras
                           $"Общее количество единиц и нулей: {total}, количество единиц: {quantity[1]}, количество нулей: {quantity[0]}, размер массива: {size}.\n" +
                           $"Каким образом заполнить массив? (R – случайным образом, любая другая буква – последовательно): ");
             // Заполнение массива нулями и единицами.
-            char[] arr = Helpers.PopulateArray(new char[size], quantity, Console.ReadKey().Key == ConsoleKey.R ? "random" : "consecutive");
+            char[] arr = new char[size];
+            Helpers.PopulateArray(arr, quantity, Console.ReadKey().Key == ConsoleKey.R ? "random" : "consecutive");
             Console.WriteLine("\nИтоговый массив: ");
             Helpers.PrintArray(arr);
             Helpers.Hashes();
@@ -52,7 +53,8 @@ namespace Extras
         {
             Console.WriteLine("Задача 3. Массив на 100 элементов задаётся случайными числами от 1 до 99. Определите самый часто встречающийся элемент в массиве. Если таких элементов несколько, вывести их все.");
             // Создание, заполнение и вывод массива.
-            int[] numbers = Helpers.FillArray(new int[100]);
+            int[] numbers = new int[100];
+            Helpers.FillArray(numbers);
             Console.Write("Заполненный массив: ");
             Helpers.PrintArray(numbers);
             // Подсчитать повторяющиеся цифры и записать в массив количество каждой.
