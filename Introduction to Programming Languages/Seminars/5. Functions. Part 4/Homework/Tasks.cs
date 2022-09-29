@@ -30,7 +30,7 @@ namespace Homework
         {
             Console.WriteLine("Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.");
             Random random = new Random();
-            double[] numbers = new double[random.Next(10, 101)];
+            double[] numbers = new double[random.Next(4, 11)];
             Helpers.PopulateArray(numbers, random.Next(-100, 0), random.Next(0, 100));
             Console.WriteLine("Заполненный массив: ");
             Helpers.PrintArray(numbers);
