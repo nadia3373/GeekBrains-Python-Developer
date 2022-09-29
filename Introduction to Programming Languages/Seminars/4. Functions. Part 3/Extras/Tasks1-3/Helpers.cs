@@ -23,12 +23,6 @@ namespace Extras
             return counts;
         }
 
-        public static void FillArray(int[] arr)
-        {
-            Random random = new Random();
-            for (int count = 0; count < arr.Length; count++) arr[count] = random.Next(1, 100);
-        }
-
         public static void Hashes()
         {
             Console.WriteLine();
@@ -36,34 +30,37 @@ namespace Extras
             Console.WriteLine();
         }
 
-        public static void BinaryArray(char[] arr, int[] quantity, string type)
+        public static void FillArray(int[] arr, int[] quantity = null, string type = null)
         {
             Random random = new Random();
-            int limit = quantity[0] + quantity[1];
-            int[] indices = new int[arr.Length];
-            for (int count = 0; count < limit; count++)
+            int choice;
+            if (type == "random")
             {
-                // Если количество нулей и единиц не исчерпано и тип заполнения - случайный, генерируется 0 или 1.
-                // Если исчерпано количество нулей или единиц, выбирается тот элемент, который не исчерпан.
-                // При последовательном типе заполнения элементы заполняются с начала массива – нули, а затем единицы.
-                char choice = '1';
-                if (quantity[0] > 0 && quantity[1] > 0 && type == "random") choice = Convert.ToChar(random.Next(48, 50));
-                else if (quantity[0] > 0) choice = '0';
-                // Символ 0 или 1 помещается в ячейку массива по сгенерированному адресу только в том случае, если найдена ячейка, которая ещё не занята.
-                // Иначе генерируется другой адрес ячейки.
-                if (type == "random")
+                // Список для хранения свободных индексов в итоговом массиве для равномерного распределения 0 и 1 по всему массиву.
+                List<int> indices = new List<int>();
+                for (int count = arr.Length - 1; count >= 0; count--) indices.Add(count);
+                for (int count = 0; count < arr.Length; count++)
                 {
-                    int index;
-                    do index = random.Next(arr.Length);
-                    while(indices[index] != 0);
-                    arr[index] = choice;
-                    indices[index] = 1;
+                    // Случайный выбор 0 или 1, затем случайный выбор индекса из списка свободных индексов и помещение в массив по этому индексу выбранного числа.
+                    choice = 1;
+                    if (quantity[0] > 0 && quantity[1] > 0) choice = random.Next(0, 2);
+                    else if (quantity[0] > 0) choice = 0;
+                    int index = random.Next(indices.Count);
+                    if (choice == 1) arr[indices[index]] = choice;
+                    indices.Remove(indices[index]);
+                    quantity[choice]--;
                 }
-                else arr[count] = choice;
-                quantity[(int)choice - 48]--;
             }
-            // Все незаполненные ячейки массива заполняются точками для удобства отображения.
-            for (int count = 0; count < arr.Length; count++) if (arr[count] != '0' && arr[count] != '1') arr[count] = '.';
+            else if (type == "consecutive")
+            {
+                for (int count = 0; count < arr.Length; count++)
+                {
+                    choice = quantity[0] > 0 ? 0 : 1;
+                    if (choice == 1) arr[count] = choice;
+                    quantity[choice]--;
+                }
+            }
+            else for (int count = 0; count < arr.Length; count++) arr[count] = random.Next(1, 100);
         }
 
         public static void PrintArray<T>(T[] arr)

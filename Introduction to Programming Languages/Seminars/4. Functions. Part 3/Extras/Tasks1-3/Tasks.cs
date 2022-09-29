@@ -31,20 +31,17 @@ namespace Extras
         {
             Random random = new Random();
             int[] quantity = new int[2];
-            // Генерация общего количества единиц и нулей, затем генерация количества единиц, разница между общим количеством и количеством единиц – это количество нулей.
-            // Количество единиц генерируется в диапазоне от корня из общего количества единиц и нулей, округлённого в большую сторону, до общего количества единиц и нулей.
-            // Таким образом, массив никогда не окажется меньше общего количества единиц и нулей.
-            int total = random.Next(1, 101);
-            quantity[1] = random.Next((int)Math.Ceiling(Math.Sqrt(total)), total + 1);
-            int size = (int)Math.Pow(quantity[1], 2);
+            // Генерация количества единиц в диапазоне от 1 до 10, определение размера массива квадратом количества единиц – таким образом, размер не превысит 100.
+            quantity[1] = random.Next(1, 11);
+            int total = (int)Math.Pow(quantity[1], 2);
             quantity[0] = total - quantity[1];
             Console.Write("Задача 2. Напишите метод, который заполняет массив случайным количеством (от 1 до 100) нулей и единиц. Размер массива должен совпадать с квадратом количества единиц в нём.\n" +
-                          $"Общее количество единиц и нулей: {total}, количество единиц: {quantity[1]}, количество нулей: {quantity[0]}, размер массива: {size}.\n" +
+                          $"Общее количество единиц и нулей: {total}, количество единиц: {quantity[1]}, количество нулей: {quantity[0]}, размер массива: {total}.\n" +
                           $"Каким образом заполнить массив? (R – случайным образом, любая другая буква – последовательно): ");
+            int[] arr = new int[total];
             // Заполнение массива нулями и единицами.
-            char[] arr = new char[size];
-            Helpers.BinaryArray(arr, quantity, Console.ReadKey().Key == ConsoleKey.R ? "random" : "consecutive");
-            Console.WriteLine("\nИтоговый массив: ");
+            Helpers.FillArray(arr, quantity, Console.ReadKey().Key == ConsoleKey.R ? "random" : "consecutive");
+            Console.WriteLine("\nЗаполненный массив: ");
             Helpers.PrintArray(arr);
             Helpers.Hashes();
         }
