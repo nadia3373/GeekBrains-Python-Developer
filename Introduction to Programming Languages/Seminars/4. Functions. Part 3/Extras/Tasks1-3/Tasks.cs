@@ -60,10 +60,10 @@ namespace Extras
             Helpers.PrintArray(numbers);
             // Подсчитать повторяющиеся цифры и записать в массив количество каждой.
             int[] counts = Helpers.CountSequences(numbers);
-            // Найти максимальное число в массиве и вывести все индексы с этим числом.
+            // Найти максимальное число в массиве и вывести все индексы с максимальным значением.
             int max = counts.Max();
             string result = String.Empty;
-            for (int count = 0; count < counts.Length; count++) if (counts[count] == max) result += $"{count}, ";
+            for (int count = 1; count < counts.Length; count++) if (counts[count] == max) result += $"{count}, ";
             Console.WriteLine($"Наиболее часто встречающиеся в массиве числа: {result.Remove(result.Length - 2)} – {max} раз(а).");
             Helpers.Hashes();
         }
