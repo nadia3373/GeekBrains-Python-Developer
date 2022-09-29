@@ -12,11 +12,9 @@ namespace Extras
                     int number = Convert.ToInt32(Console.ReadLine());
                     if (number < 1) throw new Exception($"Число {number} не является натуральным.");
                     // Записать двоичное представление числа в массив путём выполнения деления по модулю на 2 и целочисленного деления на 2.
-                    int[] binary = Helpers.ConvertToBinary(number);
-                    Console.Write($"Число {number} в двоичной записи: ");
-                    foreach (int element in binary) Console.Write(element);
-                    // Сравнить значения левой и правой сторон массива. Если все значения совпадут, то число является палиндромом. Например, число 585 -> 1001001001.
-                    Console.Write($". Число {(Helpers.CheckIfPalindrome(binary) ? "является" : "не является")} палиндромом в двоичной записи.");
+                    int binary = Helpers.Copy(number, 2);
+                    int copy = Helpers.Copy(binary, 10);
+                    Console.Write($"Число {number} в двоичной записи: {binary} -> {copy}. Число {(binary == copy ? "является" : "не является")} палиндромом.");
                     Helpers.Hashes();
                     break;
                 }
@@ -36,7 +34,7 @@ namespace Extras
             int total = (int)Math.Pow(quantity[1], 2);
             quantity[0] = total - quantity[1];
             Console.Write("Задача 2. Напишите метод, который заполняет массив случайным количеством (от 1 до 100) нулей и единиц. Размер массива должен совпадать с квадратом количества единиц в нём.\n" +
-                          $"Общее количество единиц и нулей: {total}, количество единиц: {quantity[1]}, количество нулей: {quantity[0]}, размер массива: {total}.\n" +
+                          $"Размер массива: {total}, количество единиц: {quantity[1]}, количество нулей: {quantity[0]}.\n" +
                           $"Каким образом заполнить массив? (R – случайным образом, любая другая буква – последовательно): ");
             int[] arr = new int[total];
             // Заполнение массива нулями и единицами.

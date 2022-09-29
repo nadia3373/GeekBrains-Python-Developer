@@ -8,11 +8,10 @@ namespace Extras
             return true;
         }
 
-        public static int[] ConvertToBinary(int number)
+        public static int Copy(int number, int numeration)
         {
-            // Размер массива для записи определяется количеством цифр в двоичном представлении числа.
-            int[] result = new int[(int)Math.Log(number, 2) + 1];
-            for (int count = result.Length - 1; number > 0; count--, number /= 2) result[count] = number % 2;
+            int result = 0;
+            for (; number > 0; number /= numeration) result = result * 10 + number % numeration;
             return result;
         }
 
@@ -21,13 +20,6 @@ namespace Extras
             int[] counts = new int[100];
             for (int count = 1; count < arr.Length; count++) counts[arr[count]]++;
             return counts;
-        }
-
-        public static void Hashes()
-        {
-            Console.WriteLine();
-            Console.WriteLine("####################################################################################################");
-            Console.WriteLine();
         }
 
         public static void FillArray(int[] arr, int[] quantity = null, string type = null)
@@ -61,6 +53,13 @@ namespace Extras
                 }
             }
             else for (int count = 0; count < arr.Length; count++) arr[count] = random.Next(1, 100);
+        }
+
+        public static void Hashes()
+        {
+            Console.WriteLine();
+            Console.WriteLine("####################################################################################################");
+            Console.WriteLine();
         }
 
         public static void PrintArray<T>(T[] arr)
