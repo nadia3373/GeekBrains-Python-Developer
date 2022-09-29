@@ -36,8 +36,9 @@ namespace Homework
         {
             for (int count = 0; count < arr.Length; count++)
             {
-                if (count == arr.Length - 1) Console.WriteLine($"{arr[count]}");
-                else Console.Write($"{arr[count]} ");
+                if (count == arr.Length - 1) Console.WriteLine($"{arr[count]}]");
+                else if (count == 0) Console.Write($"[{arr[count]}, ");
+                else Console.Write($"{arr[count]}, ");
             }
         }
     }

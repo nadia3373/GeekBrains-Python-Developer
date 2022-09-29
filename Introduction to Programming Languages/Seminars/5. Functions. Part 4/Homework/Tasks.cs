@@ -8,7 +8,7 @@ namespace Homework
             Random random = new Random();
             int[] numbers = new int[random.Next(4, 11)];
             Helpers.PopulateArray(numbers, 100, 1000);
-            Console.WriteLine("Заполненный массив: ");
+            Console.Write("Заполненный массив: ");
             Helpers.PrintArray(numbers);
             Console.WriteLine($"Количество чётных чисел в массиве = {Helpers.CountElements(numbers, "number", "even")}");
             Helpers.Hashes();
@@ -20,7 +20,7 @@ namespace Homework
             Random random = new Random();
             int[] numbers = new int[random.Next(4, 11)];
             Helpers.PopulateArray(numbers, -99, 100);
-            Console.WriteLine("Заполненный массив: ");
+            Console.Write("Заполненный массив: ");
             Helpers.PrintArray(numbers);
             Console.WriteLine($"Сумма элементов с нечётными индексами = {Helpers.CountElements(numbers, "index", "odd")}");
             Helpers.Hashes();
@@ -32,7 +32,7 @@ namespace Homework
             Random random = new Random();
             double[] numbers = new double[random.Next(4, 11)];
             Helpers.PopulateArray(numbers, random.Next(-100, 0), random.Next(0, 100));
-            Console.WriteLine("Заполненный массив: ");
+            Console.Write("Заполненный массив: ");
             Helpers.PrintArray(numbers);
             double min = numbers.Min(), max = numbers.Max();
             Console.WriteLine($"Максимальный элемент: {max}, минимальный элемент: {min}, абсолютная разница между ними = {Math.Round(max - Math.Abs(min), 2)}, " + 
