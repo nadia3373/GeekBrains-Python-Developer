@@ -56,6 +56,7 @@ namespace Extras
             int[] numbers = new int[100];
             Helpers.FillArray(numbers);
             Console.Write("Заполненный массив: ");
+            Array.Sort(numbers);
             Helpers.PrintArray(numbers);
             // Подсчитать повторяющиеся цифры и записать в массив количество каждой.
             int[] counts = Helpers.CountSequences(numbers);
