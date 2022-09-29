@@ -36,9 +36,8 @@ namespace Extras
             Console.WriteLine();
         }
 
-        public static void PopulateArray(char[] arr, int[] quantity, string type)
+        public static void BinaryArray(char[] arr, int[] quantity, string type)
         {
-            for (int count = 0; count < arr.Length; count++) arr[count] = '.';
             Random random = new Random();
             int limit = quantity[0] + quantity[1];
             int[] indices = new int[arr.Length];
@@ -46,6 +45,7 @@ namespace Extras
             {
                 // Если количество нулей и единиц не исчерпано и тип заполнения - случайный, генерируется 0 или 1.
                 // Если исчерпано количество нулей или единиц, выбирается тот элемент, который не исчерпан.
+                // При последовательном типе заполнения элементы заполняются с начала массива – нули, а затем единицы.
                 char choice = '1';
                 if (quantity[0] > 0 && quantity[1] > 0 && type == "random") choice = Convert.ToChar(random.Next(48, 50));
                 else if (quantity[0] > 0) choice = '0';
@@ -54,20 +54,16 @@ namespace Extras
                 if (type == "random")
                 {
                     int index;
-                    while (true)
-                    {
-                        index = random.Next(arr.Length);
-                        if (indices[index] == 0)
-                        {
-                            arr[index] = choice;
-                            indices[index] = 1;
-                            break;
-                        }
-                    }
+                    do index = random.Next(arr.Length);
+                    while(indices[index] != 0);
+                    arr[index] = choice;
+                    indices[index] = 1;
                 }
                 else arr[count] = choice;
                 quantity[(int)choice - 48]--;
             }
+            // Все незаполненные ячейки массива заполняются точками для удобства отображения.
+            for (int count = 0; count < arr.Length; count++) if (arr[count] != '0' && arr[count] != '1') arr[count] = '.';
         }
 
         public static void PrintArray<T>(T[] arr)
