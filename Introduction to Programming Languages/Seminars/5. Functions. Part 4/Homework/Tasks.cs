@@ -35,7 +35,7 @@ namespace Homework
             Console.Write("Заполненный массив: ");
             Helpers.PrintArray(numbers);
             double min = numbers.Min(), max = numbers.Max();
-            Console.WriteLine($"Максимальный элемент: {max}, минимальный элемент: {min}, разница между ними = {Math.Round(Math.Abs(max) - Math.Abs(min), 2)}");
+            Console.WriteLine($"Максимальный элемент: {max}, минимальный элемент: {min}, разница между ними = {Math.Round(Math.Abs(Math.Abs(max) - Math.Abs(min)), 2)}");
             Helpers.Hashes();
         }
     }
