@@ -23,7 +23,7 @@ namespace Extras
             return counts;
         }
 
-        public static void FillArray(int[] arr, int[] quantity = null, string type = null)
+        public static void FillArray(int[] arr, int zeros = 0, int ones = 0, string type = null)
         {
             Random random = new Random();
             if (type == "random")
@@ -31,22 +31,15 @@ namespace Extras
                 // Список для хранения свободных индексов в итоговом массиве для равномерного распределения 0 и 1 по всему массиву.
                 List<int> indices = new List<int>();
                 for (int count = arr.Length - 1; count >= 0; count--) indices.Add(count);
-                while (quantity[1] > 0)
+                while (ones > 0)
                 {
                     int index = random.Next(indices.Count);
                     arr[indices[index]] = 1;
                     indices.Remove(indices[index]);
-                    quantity[1]--;
+                    ones--;
                 }
             }
-            else if (type == "consecutive")
-            {
-                for (int count = quantity[0]; quantity[1] > 0; count++)
-                {
-                    arr[count] = 1;
-                    quantity[1]--;
-                }
-            }
+            else if (type == "consecutive") for (int count = zeros; ones > 0; count++, ones--) arr[count] = 1;
             else for (int count = 0; count < arr.Length; count++) arr[count] = random.Next(1, 100);
         }
 

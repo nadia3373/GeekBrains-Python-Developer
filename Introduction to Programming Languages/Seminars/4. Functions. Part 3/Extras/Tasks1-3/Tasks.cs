@@ -30,17 +30,16 @@ namespace Extras
         public static void Task2()
         {
             Random random = new Random();
-            int[] quantity = new int[2];
             // Генерация количества единиц в диапазоне от 1 до 10, определение размера массива квадратом количества единиц – таким образом, размер не превысит 100.
-            quantity[1] = random.Next(1, 11);
-            int total = (int)Math.Pow(quantity[1], 2);
-            quantity[0] = total - quantity[1];
+            int ones = random.Next(1, 11);
+            int total = (int)Math.Pow(ones, 2);
+            int zeros = total - ones;
             Console.Write("Задача 2. Напишите метод, который заполняет массив случайным количеством (от 1 до 100) нулей и единиц. Размер массива должен совпадать с квадратом количества единиц в нём.\n" +
-                          $"Размер массива: {total}, количество единиц: {quantity[1]}, количество нулей: {quantity[0]}.\n" +
+                          $"Размер массива: {total}, количество единиц: {ones}, количество нулей: {zeros}.\n" +
                           $"Каким образом заполнить массив? (R – случайным образом, любая другая буква – последовательно): ");
             int[] arr = new int[total];
             // Заполнение массива нулями и единицами.
-            Helpers.FillArray(arr, quantity, Console.ReadKey().Key == ConsoleKey.R ? "random" : "consecutive");
+            Helpers.FillArray(arr, zeros, ones, Console.ReadKey().Key == ConsoleKey.R ? "random" : "consecutive");
             Console.WriteLine("\nЗаполненный массив: ");
             Helpers.PrintArray(arr);
             Helpers.Hashes();
