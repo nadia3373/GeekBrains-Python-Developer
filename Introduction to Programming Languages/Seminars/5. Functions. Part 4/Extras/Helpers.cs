@@ -2,7 +2,7 @@ namespace Extras
 {
     class Helpers
     {
-        public static void CartesianProduct (int[] arr, int num1, int num2)
+        public static void CartesianProduct(int[] arr, int num1, int num2)
         {
             int num1Size = (int)Math.Floor(Math.Log10(num1)) + 1, num2Size = (int)Math.Floor(Math.Log10(num2)) + 1, index = 0;
             for (int power1 = num1Size - 1; power1 >= 0; power1--)
@@ -15,7 +15,7 @@ namespace Extras
             }
         }
 
-        public static void FillArray (int[] arr, int min, int max)
+        public static void FillArray(int[] arr, int min, int max)
         {
             Random random = new Random();
             for (int count = 0; count < arr.Length; count++) arr[count] = random.Next(min, max);
@@ -58,6 +58,23 @@ namespace Extras
             return result;
         }
 
+        public static bool FindNumbersAlt (int count)
+        {
+            if (count % 10 != 0)
+            {
+                int digits = (int)Math.Floor(Math.Log10(count)) + 1;
+                int sum = 0, product = 1;
+                for (int power = digits - 1; power >= 0; power--)
+                {
+                    int digit = (int)(count / Math.Pow(10, power) % 10);
+                    sum += digit;
+                    product *= digit;
+                }
+                if (product % 3 == 0 && product / 3 == sum) return true;
+            }
+            return false;
+        }
+
         public static bool FindSequence (int[] arr, int number)
         {
             int digits = (int)Math.Floor(Math.Log10(number)) + 1;
@@ -85,27 +102,6 @@ namespace Extras
                 else if (count == 0) Console.Write($"[{arr[count]}, ");
                 else Console.Write($"{arr[count]}, ");
             }
-        }
-
-        public static int Simple ()
-        {
-            int result = 0;
-            for (int count = 1; count < 1000000; count++)
-            {
-                if (count % 10 != 0 && count % 3 == 0)
-                {
-                    int digits = (int)Math.Floor(Math.Log10(count)) + 1;
-                    int sum = 0, product = 1;
-                    for (int power = digits - 1; power >= 0; power--)
-                    {
-                        int digit = (int)(count / Math.Pow(10, power) % 10);
-                        sum += digit;
-                        product *= digit;
-                    }
-                    if (product / 3 == sum) result++;
-                }
-            }
-            return result;
         }
     }
 }

@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Linq;
 namespace Extras
 {
     class Tasks
@@ -61,6 +62,15 @@ namespace Extras
             Console.WriteLine("Задача 3. Найдите все числа от 1 до 1000000, сумма цифр которых в три раза меньше их произведений. Подсчитайте их количество.");
             int result = Helpers.FindNumbers();
             Console.WriteLine($"Количество подходящих чисел: {result}");
+            Helpers.Hashes();
+        }
+
+        public static void Task3Alt()
+        {
+            Console.WriteLine("Задача 3. Найдите все числа от 1 до 1000000, сумма цифр которых в три раза меньше их произведений. Подсчитайте их количество.");
+            int count = Enumerable.Range(1, 1000000).Where(x => Helpers.FindNumbersAlt(x)).Count();
+            Console.WriteLine($"Количество подходящих чисел: {count}");
+            Helpers.Hashes();
         }
 
         public static void Task1Advanced()
