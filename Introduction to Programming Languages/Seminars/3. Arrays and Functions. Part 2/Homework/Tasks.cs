@@ -29,7 +29,8 @@ namespace Tasks
         {
             Console.Write("Задача 21. Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.\n" +
                           "Введите координаты x, y и z точки A через пробел: ");
-            int[] pointA = Console.ReadLine().Split(' ').Select(x => Convert.ToInt32(x)).ToArray();
+            //int[] pointA = Console.ReadLine().Split(' ').Select(x => Convert.ToInt32(x)).ToArray();
+            int[] pointA = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
             Console.Write("Введите координаты x, y и z точки B через пробел: ");
             int[] pointB = Console.ReadLine().Split(' ').Select(x => Convert.ToInt32(x)).ToArray();
             Console.WriteLine(pointA.Length == 3 && pointB.Length == 3 ? $"Расстояние от точки A({pointA[0]},{pointA[1]},{pointA[2]}) до точки B({pointB[0]},{pointB[1]},{pointB[2]})" +
