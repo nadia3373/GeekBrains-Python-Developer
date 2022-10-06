@@ -23,7 +23,7 @@ namespace Extras
         public static void Task2()
         {
             Console.WriteLine("Задача 2. На вход подаётся поговорка “без труда не выловишь и рыбку из пруда”. Используя рекурсию, подсчитайте, сколько в поговорке гласных букв.");
-            string saying = "Без труда не выловишь и рыбку из пруда";
+            string saying = "без труда не выловишь и рыбку из пруда";
             char[] vowels = {'а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я'};
             int count = Helpers.CountVowels(saying, saying.Length - 1, 0, vowels);
             Console.WriteLine($"В поговорке \"без труда не выловишь и рыбку из пруда\" {count} гласных букв.");

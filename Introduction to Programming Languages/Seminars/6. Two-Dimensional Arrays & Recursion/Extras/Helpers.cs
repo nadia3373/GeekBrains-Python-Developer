@@ -150,15 +150,12 @@ namespace Extras
         {
             for (int index = 0; index < elements.GetLength(1); index++)
             {
-                for (int i = 0; i < elements.GetLength(2); i++) Console.Write(elements[arr[0], index, i]);
-                Console.Write(' ');
-                for (int i = 0; i < elements.GetLength(2); i++) Console.Write(elements[arr[1], index, i]);
-                Console.Write(' ');
-                for (int i = 0; i < elements.GetLength(2); i++) Console.Write(elements[10, index, i]);
-                Console.Write(' ');
-                for (int i = 0; i < elements.GetLength(2); i++) Console.Write(elements[arr[2], index, i]);
-                Console.Write(' ');
-                for (int i = 0; i < elements.GetLength(2); i++) Console.Write(elements[arr[3], index, i]);
+                for (int count = 0; count < arr.Length; count++)
+                {
+                    if (count == 2) for (int i = 0; i < elements.GetLength(2); i++) Console.Write(elements[10, index, i]);
+                    for (int i = 0; i < elements.GetLength(2); i++) Console.Write(elements[arr[count], index, i]);
+                    Console.Write(' ');
+                }
                 Console.WriteLine();
             }
         }
