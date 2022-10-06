@@ -30,6 +30,13 @@ namespace Homework
             for (int index = 0; index < arr.GetLength(1); index++) arr[count, index] = random.Next(min, max);
         }
 
+        public static int GetElement(int[,] arr, int element)
+        {
+            int row = (int)Math.Floor((double)element / arr.GetLength(1));
+            int column = element % arr.GetLength(1);
+            return arr[row, column];
+        }
+
         public static void Hashes()
         {
             Console.WriteLine();
@@ -39,6 +46,7 @@ namespace Homework
 
         public static void PrintArray<T>(T[,] arr)
         {
+            Console.WriteLine();
             for (int count = 0; count < arr.GetLength(0); count++)
             {
                 for (int index = 0; index < arr.GetLength(1); index++)
@@ -47,6 +55,7 @@ namespace Homework
                     else Console.Write($"{arr[count, index], 5}\t");
                 }
             }
+            Console.WriteLine();
         }
 
         public static void PrintArray(double[] arr)
