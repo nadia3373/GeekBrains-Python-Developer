@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 
 namespace Extras
 {
@@ -122,7 +123,6 @@ namespace Extras
 
         public static void PrintWithoutGaps(string[,] arr)
         {
-            Random random = new Random();
             int firstLength = arr.GetLength(0), secondLength = arr.GetLength(1);
             for (int secondCount = 0; secondCount <= secondLength + 1; secondCount++) Console.Write("_");
             Console.WriteLine();
@@ -131,10 +131,9 @@ namespace Extras
                 Console.Write('|');
                 for (int secondCount = 0; secondCount < secondLength; secondCount++)
                 {
-                    if (firstCount == 0 && secondCount == 0) Console.Write(" |");
-                    else if (firstCount == firstLength - 1 && secondCount == secondLength - 1) Console.Write(" |");
-                    else Console.Write($"{(arr[firstCount, secondCount] == "0" ? "0" : " ")}|");
+                    Console.Write($"{(arr[firstCount, secondCount] == "0" ? "\u2592" : arr[firstCount, secondCount] == "1" ? " " : arr[firstCount, secondCount])}");
                 }
+                Console.Write('|');
                 Console.WriteLine();
             }
             for (int secondCount = 0; secondCount <= secondLength + 1; secondCount++) Console.Write("\u203E");
@@ -147,7 +146,11 @@ namespace Extras
             if (y < 0 || y >= arr.GetLength(1)) return false;
             if (arr[x, y] == "0") return false;
             if (check[x, y] == true) return false;
-            
+            arr[x, y] = "*";
+            Console.Clear();
+            PrintWithoutGaps(arr);
+            arr[x, y] = ".";
+            Thread.Sleep(300);
             return true;
         }
         #endregion

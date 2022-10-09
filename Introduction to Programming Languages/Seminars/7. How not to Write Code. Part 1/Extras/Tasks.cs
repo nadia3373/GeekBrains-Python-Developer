@@ -31,7 +31,7 @@ namespace Extras
         {
             Console.Clear();
             Random random = new Random();
-            int rows = random.Next(2, 9), columns = random.Next(2, 9);
+            int rows = random.Next(2, 8), columns = random.Next(2, 8);
             int[,] numbers = new int[rows, columns];
             Helpers.FillArray(numbers, 100, 1000);
             Console.WriteLine("Задача 2. Двумерный массив размером 3х4 заполнен числами от 100 до 9999. " +
@@ -45,26 +45,28 @@ namespace Extras
                 Helpers.PrintArray(result);
             }
             else Console.WriteLine($"В исходном массиве нет чисел, сумма цифр которых больше их произведения.");
+            Helpers.Hashes();
         }
 
         public static void Task3()
         {
             Console.Clear();
             Random random = new Random();
-            int rows = random.Next(2, 9), columns = random.Next(2, 9);
+            int rows = random.Next(4, 15), columns = random.Next(4, 15);
             string[,] numbers = new string[rows, columns];
             Helpers.FillArray(numbers, 0, 2);
-            numbers[0, 0] = "1";
-            numbers[numbers.GetLength(0) - 1, numbers.GetLength(1) - 1] = "1";
-            Helpers.PrintArray(numbers);
+            numbers[0, 0] = "S";
+            numbers[numbers.GetLength(0) - 1, numbers.GetLength(1) - 1] = "F";
             Console.WriteLine("Задача 3. Двумерный массив размером 5х5 заполнен случайными нулями и единицами. Игрок может ходить только по полям, заполненным единицами. " +
                             $"Проверьте, существует ли путь из точки [0, 0] в точку [4, 4] (эти поля требуется принудительно задать равными единице).\n" +
-                            $"Массив размеров {rows}x{columns}");
+                            $"Массив размером {rows}x{columns}");
+            Helpers.PrintArray(numbers);
             Helpers.PrintWithoutGaps(numbers);
             bool[,] check = new bool[numbers.GetLength(0), numbers.GetLength(1)];
             for (int count = 0; count < check.GetLength(0); count++)
             for (int index = 0; index < check.GetLength(1); index++) check[count, index] = false;
             Console.WriteLine($"{(Helpers.FindPath(numbers, 0, 0, check) ? "Из лабиринта есть выход." : "Из лабиринта нет выхода.")}");
+            Helpers.Hashes();
         }
     }
 }
