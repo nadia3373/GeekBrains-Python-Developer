@@ -9,9 +9,9 @@ namespace Homework
             Console.Clear();
             // Создать и заполнить массив.
             Random random = new Random();
-            int rows = random.Next(4, 11), columns = random.Next(4, 11);
+            int rows = random.Next(2, 8), columns = random.Next(2, 8);
             int[,] numbers = new int[rows, columns];
-            Helpers.FillArray(numbers, 1, 10);
+            Helpers.FillArray(numbers, 1, 100);
             // Определить позиции для вывода массивов рядом, вывести на экран условие задачи и заполненный массив.
             int secondPosition = Console.WindowWidth / 2;
             secondPosition = secondPosition % 8 == 0 ? secondPosition : Helpers.IncreaseToMultiple(secondPosition);
@@ -30,8 +30,8 @@ namespace Homework
         {
             Console.Clear();
             Random random = new Random();
-            int rows = random.Next(2, 7), columns = 0;
-            do columns = random.Next(2, 7);
+            int rows = random.Next(2, 8), columns = 0;
+            do columns = random.Next(2, 8);
             while (rows == columns);
             int[,] numbers = new int[rows, columns];
             Helpers.FillArray(numbers, 1, 10);
@@ -64,7 +64,7 @@ namespace Homework
             Console.Clear();
             // Создать и заполнить 2 матрицы и матрицу-результат их умножения.
             Random random = new Random();
-            int rows = random.Next(2, 9), columns = random.Next(2, 9);
+            int rows = random.Next(2, 8), columns = random.Next(2, 8);
             int[,] matrix1 = new int[rows, columns], matrix2 = new int[columns, rows];
             Helpers.FillArray(matrix1, 1, 10);
             Helpers.FillArray(matrix2, 1, 10);
