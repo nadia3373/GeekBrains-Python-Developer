@@ -114,11 +114,12 @@ namespace Extras
             if (x == arr.GetLength(0) - 1 && y == arr.GetLength(1) - 1) return true;
             check[x, y] = true;
             bool esc = false;
-            if (validate(arr, x, y - 1, check)) esc = FindPath(arr, x, y - 1, check);
-            if (!esc && validate(arr, x, y + 1, check)) esc = FindPath(arr, x, y + 1, check);
-            if (!esc && validate(arr, x - 1, y, check)) esc = FindPath(arr, x - 1, y, check);
+            if (validate(arr, x, y + 1, check)) esc = FindPath(arr, x, y + 1, check);
             if (!esc && validate(arr, x + 1, y, check)) esc = FindPath(arr, x + 1, y, check);
-            return esc;
+            if (!esc && validate(arr, x, y - 1, check)) esc = FindPath(arr, x, y - 1, check);
+            if (!esc && validate(arr, x - 1, y, check)) esc = FindPath(arr, x - 1, y, check);
+            if (esc) return esc;
+            return false;
         }
 
         public static void PrintWithoutGaps(string[,] arr)
