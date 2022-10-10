@@ -75,61 +75,6 @@ namespace Homework
         #endregion
 
         #region Task58
-        public static int[,] MultiplyMatrices(int[,] matrix1, int[,] matrix2)
-        {
-            int rows1 = matrix1.GetLength(0), cols1 = matrix1.GetLength(1), rows2 = matrix2.GetLength(0), cols2 = matrix2.GetLength(1);
-            int[,] result = new int[rows1, cols2];
-            for(int firstCount = 0; firstCount < rows1; firstCount++)
-            {
-                for(int secondCount = 0; secondCount < cols2; secondCount++)
-                {
-                    int sum = 0;
-                    for (int thirdCount = 0; thirdCount < cols1; thirdCount++) sum += matrix1[firstCount, thirdCount] * matrix2[thirdCount, secondCount];
-                    result[firstCount, secondCount] = sum;
-                }
-            }
-            return result;
-        }
-        #endregion
-
-        #region Task60
-        public static void FillArray(int[,,] arr, int min, int max)
-        {
-            Random random = new Random();
-            // Список для хранения занятых чисел.
-            List<int> takenNumbers = new List<int>();
-            int firstLength = arr.GetLength(0), secondLength = arr.GetLength(1), thirdLength = arr.GetLength(2);
-            for (int firstCount = 0; firstCount < firstLength; firstCount++)
-            {
-                for (int secondCount = 0; secondCount < secondLength; secondCount++)
-                {
-                    for (int thirdCount = 0; thirdCount < thirdLength; thirdCount++)
-                    {
-                        int number;
-                        do number = random.Next(min, max);
-                        while (takenNumbers.Contains(number));
-                        arr[firstCount, secondCount, thirdCount] = number;
-                        takenNumbers.Add(number);
-                    }
-                }
-            }
-        }
-
-        public static void PrintArray(int[,,] arr)
-        {
-            int firstLength = arr.GetLength(0), secondLength = arr.GetLength(1), thirdLength = arr.GetLength(2);
-            for (int thirdCount = 0; thirdCount < thirdLength; thirdCount++)
-            {
-                for (int firstCount = 0; firstCount < firstLength; firstCount++)
-                {
-                    for (int secondCount = 0; secondCount < secondLength; secondCount++) Console.Write($"{arr[firstCount, secondCount, thirdCount]}({firstCount}, {secondCount}, {thirdCount})\t");
-                    Console.WriteLine();
-                }
-            }
-        }
-        #endregion
-
-        #region Task62
         public static void AddNumber(int[] pos, string[,] arr, string direction, int startRow, int startCol)
         {
             // Убедиться, что счётчик не превышает доступное количество элементов.
@@ -168,6 +113,24 @@ namespace Homework
             Console.SetCursorPosition(0, 4);
             Helpers.PrintArray(arr);
             Thread.Sleep(100);
+        }
+        #endregion
+
+        #region Task61
+        public static int[,] MultiplyMatrices(int[,] matrix1, int[,] matrix2)
+        {
+            int rows1 = matrix1.GetLength(0), cols1 = matrix1.GetLength(1), rows2 = matrix2.GetLength(0), cols2 = matrix2.GetLength(1);
+            int[,] result = new int[rows1, cols2];
+            for(int firstCount = 0; firstCount < rows1; firstCount++)
+            {
+                for(int secondCount = 0; secondCount < cols2; secondCount++)
+                {
+                    int sum = 0;
+                    for (int thirdCount = 0; thirdCount < cols1; thirdCount++) sum += matrix1[firstCount, thirdCount] * matrix2[thirdCount, secondCount];
+                    result[firstCount, secondCount] = sum;
+                }
+            }
+            return result;
         }
         #endregion
     }

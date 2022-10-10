@@ -12,9 +12,7 @@ namespace Homework
             Console.Write("Нажмите 'Enter' для перехода к следующему заданию.");
             if (Console.ReadKey().Key == ConsoleKey.Enter) Tasks.Task58();
             Console.Write("Нажмите 'Enter' для перехода к следующему заданию.");
-            if (Console.ReadKey().Key == ConsoleKey.Enter) Tasks.Task60();
-            Console.Write("Нажмите 'Enter' для перехода к следующему заданию.");
-            if (Console.ReadKey().Key == ConsoleKey.Enter) Tasks.Task62();
+            if (Console.ReadKey().Key == ConsoleKey.Enter) Tasks.Task61();
         }
     }
 }
