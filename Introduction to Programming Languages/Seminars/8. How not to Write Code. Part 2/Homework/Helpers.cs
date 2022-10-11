@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading;
 
 namespace Homework
@@ -115,6 +116,43 @@ namespace Homework
         }
         #endregion
 
+        #region Task60
+        public static void FillArray(int[,,] arr, int min, int max)
+        {
+            Random random = new Random();
+            // Список для хранения занятых чисел.
+            List<int> takenNumbers = new List<int>();
+            int firstLength = arr.GetLength(0), secondLength = arr.GetLength(1), thirdLength = arr.GetLength(2);
+            for (int firstCount = 0; firstCount < firstLength; firstCount++)
+            {
+                for (int secondCount = 0; secondCount < secondLength; secondCount++)
+                {
+                    for (int thirdCount = 0; thirdCount < thirdLength; thirdCount++)
+                    {
+                        int number;
+                        do number = random.Next(min, max);
+                        while (takenNumbers.Contains(number));
+                        arr[firstCount, secondCount, thirdCount] = number;
+                        takenNumbers.Add(number);
+                    }
+                }
+            }
+        }
+
+        public static void PrintArray(int[,,] arr)
+        {
+            int firstLength = arr.GetLength(0), secondLength = arr.GetLength(1), thirdLength = arr.GetLength(2);
+            for (int thirdCount = 0; thirdCount < thirdLength; thirdCount++)
+            {
+                for (int firstCount = 0; firstCount < firstLength; firstCount++)
+                {
+                    for (int secondCount = 0; secondCount < secondLength; secondCount++) Console.Write($"{arr[firstCount, secondCount, thirdCount]}({firstCount}, {secondCount}, {thirdCount})\t");
+                    Console.WriteLine();
+                }
+            }
+        }
+        #endregion
+        
         #region Task61
         public static int[,] MultiplyMatrices(int[,] matrix1, int[,] matrix2)
         {

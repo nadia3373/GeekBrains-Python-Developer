@@ -59,6 +59,20 @@ namespace Homework
             Helpers.Hashes();
         }
 
+        public static void Task60()
+        {
+            Console.Clear();
+            Random random = new Random();
+            int size = random.Next(2, 5);
+            int[,,] numbers = new int[size, size, size];
+            Helpers.FillArray(numbers, 10, 100);
+            Console.WriteLine("Задача 60. Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. " +
+                                "Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.\n\n" +
+                                $"Массив размером {size}x{size}x{size}:\n");
+            Helpers.PrintArray(numbers);
+            Helpers.Hashes();
+        }
+
         public static void Task61()
         {
             Console.Clear();
