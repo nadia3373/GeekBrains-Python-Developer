@@ -32,36 +32,31 @@ namespace Homework
         }
         #endregion
 
-        #region Task64
-        public static void PrintElements(int a, int b)
+        #region Task64&64Alt
+        public static void PrintNumbers(int a, int b = 1, string type = null)
         {
             if (a == b)
             {
-                if (a % 3 == 0) Console.Write($"{a}");
+                if (type == "divby3")
+                {
+                    if (a % 3 == 0) Console.Write($"{a}");
+                }
+                else Console.WriteLine(a);
                 return;
             }
             else
             {
-                if (a % 3 == 0) Console.Write($"{a} ");
-                a = a % 3 == 0 && a + 3 <= b ? a + 3 : a + 1;
-                PrintElements(a, b);
-            }
-        }
-        #endregion
-
-        #region Task64Alt
-        public static void PrintNumbers(int num)
-        {
-            if (num == 1)
-            {
-                Console.WriteLine(num);
-                return;
-            }
-            else
-            {
-                Console.Write($"{num}, ");
-                if (num < 1) PrintNumbers(num + 1);
-                else PrintNumbers(num - 1);
+                if (type == "divby3")
+                {
+                    if (a % 3 == 0) Console.Write($"{a} ");
+                    a = a % 3 == 0 && a + 3 <= b ? a + 3 : a + 1;
+                }
+                else
+                {
+                    Console.Write($"{a}, ");
+                    a = a < 1 ? a + 1 : a - 1;
+                }
+                PrintNumbers(a, b, type);
             }
         }
         #endregion

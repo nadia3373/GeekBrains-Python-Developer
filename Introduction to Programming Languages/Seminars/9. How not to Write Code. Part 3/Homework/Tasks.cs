@@ -13,7 +13,7 @@ namespace Homework
             Random random = new Random();
             (int m, int n) numbers = Helpers.TakeInput();
             Console.Write($"Все числа, кратные 3, в промежутке от {numbers.m} до {numbers.n}: ");
-            Helpers.PrintElements(Math.Min(numbers.m, numbers.n), Math.Max(numbers.m, numbers.n));
+            Helpers.PrintNumbers(Math.Min(numbers.m, numbers.n), Math.Max(numbers.m, numbers.n), "divby3");
             Console.WriteLine();
             Helpers.Hashes();
         }
