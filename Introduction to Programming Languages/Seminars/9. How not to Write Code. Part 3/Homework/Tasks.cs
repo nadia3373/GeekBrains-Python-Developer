@@ -12,9 +12,13 @@ namespace Homework
                           "Нажмите M, чтобы задать числа вручную, любую другую букву – чтобы выбрать случайно: ");
             Random random = new Random();
             (int m, int n) numbers = Helpers.TakeInput();
-            Console.Write($"Все числа, кратные 3, в промежутке от {numbers.m} до {numbers.n}: ");
-            Helpers.PrintNumbers(Math.Min(numbers.m, numbers.n), Math.Max(numbers.m, numbers.n), "divby3");
-            Console.WriteLine();
+            if (numbers.m < 1 && numbers.n < 1) Console.WriteLine("Введены не натуральные числа.");
+            else
+            {
+                Console.Write($"Все числа, кратные 3, в промежутке от {numbers.m} до {numbers.n}: ");
+                Helpers.PrintNumbers(Math.Min(numbers.m, numbers.n), Math.Max(numbers.m, numbers.n), "divby3");
+                Console.WriteLine();
+            }
             Helpers.Hashes();
         }
 
@@ -32,7 +36,7 @@ namespace Homework
             else
             {
                 Console.WriteLine();
-                number = new Random().Next(-99, 100);
+                number = new Random().Next(1, 100);
             }
             Console.Write($"\nN = {number} -> ");
             Helpers.PrintNumbers(number);
@@ -46,7 +50,8 @@ namespace Homework
                           "Нажмите M, чтобы задать числа вручную, любую другую букву – чтобы выбрать случайно: ");
             Random random = new Random();
             (int m, int n) numbers = Helpers.TakeInput();
-            Console.WriteLine($"Сумма элементов от {numbers.m} до {numbers.n} -> {Helpers.SumElements(Math.Min(numbers.m, numbers.n), Math.Max(numbers.m, numbers.n), 0)}");
+            if (numbers.m < 1 && numbers.n < 1) Console.WriteLine("Введены не натуральные числа.");
+            else Console.WriteLine($"Сумма элементов от {numbers.m} до {numbers.n} -> {Helpers.SumElements(Math.Min(numbers.m, numbers.n), Math.Max(numbers.m, numbers.n), 0)}");
             Helpers.Hashes();
         }
 
@@ -57,8 +62,9 @@ namespace Homework
                           "Нажмите M, чтобы задать числа вручную, любую другую букву – чтобы выбрать случайно: ");
             Random random = new Random();
             (int m, int n) numbers = Helpers.TakeInput();
-            Console.WriteLine($@"Сумма элементов от {numbers.m} до {numbers.n} -> {Enumerable.Range(Math.Min(numbers.m, numbers.n),
-                              Math.Max(numbers.m, numbers.n) - Math.Min(numbers.m, numbers.n) + 1).Sum()}");
+            if (numbers.m < 1 && numbers.n < 1) Console.WriteLine("Введены не натуральные числа.");
+            else Console.WriteLine($@"Сумма элементов от {numbers.m} до {numbers.n} -> {Enumerable.Range(Math.Min(numbers.m, numbers.n),
+                                   Math.Max(numbers.m, numbers.n) - Math.Min(numbers.m, numbers.n) + 1).Where(x => x > 0).Sum()}");
             Helpers.Hashes();
         }
 

@@ -39,21 +39,21 @@ namespace Homework
             {
                 if (type == "divby3")
                 {
-                    if (a % 3 == 0) Console.Write($"{a}");
+                    if (a % 3 == 0 && a > 0) Console.Write($"{a}");
                 }
-                else Console.WriteLine(a);
+                else if (a > 0) Console.WriteLine(a);
                 return;
             }
             else
             {
                 if (type == "divby3")
                 {
-                    if (a % 3 == 0) Console.Write($"{a} ");
+                    if (a % 3 == 0 && a > 0) Console.Write($"{a} ");
                     a = a % 3 == 0 && a + 3 <= b ? a + 3 : a + 1;
                 }
                 else
                 {
-                    Console.Write($"{a}, ");
+                    if (a > 0) Console.Write($"{a}, ");
                     a = a < 1 ? a + 1 : a - 1;
                 }
                 PrintNumbers(a, b, type);
@@ -64,7 +64,7 @@ namespace Homework
         #region Task66
         public static int SumElements(int num1, int num2, int count)
         {
-            count += num1;
+            if (num1 > 0) count += num1;
             if (num1 == num2) return count;
             else return SumElements(num1 + 1, num2, count);
         }
