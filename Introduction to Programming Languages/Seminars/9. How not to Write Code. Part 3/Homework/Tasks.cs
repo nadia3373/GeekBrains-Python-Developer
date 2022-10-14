@@ -15,7 +15,7 @@ namespace Homework
             if (numbers.m < 1 && numbers.n < 1) Console.WriteLine("Введены не натуральные числа.");
             else
             {
-                Console.Write($"Все числа, кратные 3, в промежутке от {numbers.m} до {numbers.n}: ");
+                Console.Write($"Все натуральные числа, кратные 3, в промежутке от {numbers.m} до {numbers.n}: ");
                 Helpers.PrintNumbers(Math.Min(numbers.m, numbers.n), Math.Max(numbers.m, numbers.n), "divby3");
                 Console.WriteLine();
             }
@@ -51,7 +51,7 @@ namespace Homework
             Random random = new Random();
             (int m, int n) numbers = Helpers.TakeInput();
             if (numbers.m < 1 && numbers.n < 1) Console.WriteLine("Введены не натуральные числа.");
-            else Console.WriteLine($"Сумма элементов от {numbers.m} до {numbers.n} -> {Helpers.SumElements(Math.Min(numbers.m, numbers.n), Math.Max(numbers.m, numbers.n), 0)}");
+            else Console.WriteLine($"Сумма натуральных элементов от {numbers.m} до {numbers.n} -> {Helpers.SumElements(Math.Min(numbers.m, numbers.n), Math.Max(numbers.m, numbers.n), 0)}");
             Helpers.Hashes();
         }
 
@@ -63,7 +63,7 @@ namespace Homework
             Random random = new Random();
             (int m, int n) numbers = Helpers.TakeInput();
             if (numbers.m < 1 && numbers.n < 1) Console.WriteLine("Введены не натуральные числа.");
-            else Console.WriteLine($@"Сумма элементов от {numbers.m} до {numbers.n} -> {Enumerable.Range(Math.Min(numbers.m, numbers.n),
+            else Console.WriteLine($@"Сумма натуральных элементов от {numbers.m} до {numbers.n} -> {Enumerable.Range(Math.Min(numbers.m, numbers.n),
                                    Math.Max(numbers.m, numbers.n) - Math.Min(numbers.m, numbers.n) + 1).Where(x => x > 0).Sum()}");
             Helpers.Hashes();
         }
