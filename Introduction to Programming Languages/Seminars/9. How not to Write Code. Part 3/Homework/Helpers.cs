@@ -49,6 +49,23 @@ namespace Homework
         }
         #endregion
 
+        #region Task64Alt
+        public static void PrintNumbers(int num)
+        {
+            if (num == 1)
+            {
+                Console.WriteLine(num);
+                return;
+            }
+            else
+            {
+                Console.Write($"{num}, ");
+                if (num < 1) PrintNumbers(num + 1);
+                else PrintNumbers(num - 1);
+            }
+        }
+        #endregion
+
         #region Task66
         public static int SumElements(int num1, int num2, int count)
         {

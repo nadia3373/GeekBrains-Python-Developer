@@ -5,7 +5,7 @@ namespace Homework
 {
     class Tasks
     {
-        public static void Task64()
+        public static void Task64() // Задача 64 из презентации.
         {
             Console.Clear();
             Console.Write("Задача 64. Задайте значения M и N. Напишите рекурсивный метод, который выведет все натуральные числа кратные 3-ём в промежутке от M до N.\n" +
@@ -15,6 +15,27 @@ namespace Homework
             Console.Write($"Все числа, кратные 3, в промежутке от {numbers.m} до {numbers.n}: ");
             Helpers.PrintElements(Math.Min(numbers.m, numbers.n), Math.Max(numbers.m, numbers.n));
             Console.WriteLine();
+            Helpers.Hashes();
+        }
+
+        public static void Task64Alt() // Задача 64 с платформы.
+        {
+            Console.Clear();
+            Console.Write("Задача 64: Задайте значение N. Напишите программу, которая выведет все натуральные числа в промежутке от N до 1. Выполнить с помощью рекурсии.\n" +
+                            "Нажмите M, чтобы задать число вручную, любую другую букву – чтобы выбрать случайно: ");
+            int number;
+            if (Console.ReadKey().Key == ConsoleKey.M)
+            {
+                Console.Write("\nВведите N: ");
+                number = Convert.ToInt32(Console.ReadLine());
+            }
+            else
+            {
+                Console.WriteLine();
+                number = new Random().Next(-99, 100);
+            }
+            Console.Write($"\nN = {number} -> ");
+            Helpers.PrintNumbers(number);
             Helpers.Hashes();
         }
 
