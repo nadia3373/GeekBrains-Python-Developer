@@ -5,7 +5,7 @@ namespace Homework
 {
     class Tasks
     {
-        public static void Task64() // Задача 64 из презентации.
+        public static void Task64() // Задача 64 из презентации
         {
             Console.Clear();
             Console.Write("Задача 64. Задайте значения M и N. Напишите рекурсивный метод, который выведет все натуральные числа кратные 3-ём в промежутке от M до N.\n" +
