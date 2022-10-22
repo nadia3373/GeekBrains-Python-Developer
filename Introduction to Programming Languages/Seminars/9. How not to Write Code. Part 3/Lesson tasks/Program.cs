@@ -4,9 +4,9 @@
     {
         static void Main(string[] args)
         {
-            // Tasks.Task63();
-            // Tasks.Task65();
-            // Tasks.Task67();
+            Tasks.Task63();
+            Tasks.Task65();
+            Tasks.Task67();
             Tasks.Task69();
         }
     }
