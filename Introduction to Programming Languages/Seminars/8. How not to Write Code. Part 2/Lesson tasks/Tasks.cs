@@ -48,7 +48,7 @@ namespace Lesson_tasks
             int[,] numbers = new int[rows, columns];
             Helpers.FillArray(numbers, 1, 100);
             Dictionary<int,int> frequency = Helpers.CountElements(numbers);
-            Console.WriteLine("Задача 57: Составить частотный словарь элементов двумерного массива. Частотный словарь содержит информацию о том, сколько раз встречается элемент входных данных.\n\n" +
+            Console.WriteLine("Задача 57: Составить словарь элементов двумерного массива. Частотный словарь содержит информацию о том, сколько раз встречается элемент входных данных.\n\n" +
                               "Заполненный массив:\n");
             Helpers.PrintArray(numbers);
             Console.WriteLine("Частотный массив:\n");
