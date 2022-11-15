@@ -1,0 +1,65 @@
+a, h1, h2 {
+    color: palevioletred;
+}
+
+body {
+    background-color: linen;
+    font-family: Montserrat;
+}
+
+h1, h2 {
+    font-family: Caveat;
+}
+
+h1 {
+    font-size: 72px;
+    margin: 10px 0 10px 0;
+}
+
+h2 {
+    font-size: 60px;
+    margin: 0;
+}
+
+.content {
+    background-color: mistyrose;
+    border-radius: 1.5rem;
+    margin: 0 auto;
+    padding: 20px;
+    width: 30%;
+}
+
+.center-items {
+    justify-content: center;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.distribute {
+    justify-content: space-between;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.fullwidth {
+    width: 100%;
+}
+
+.list {
+    max-width: calc(100% - 250px);
+}
+
+.round-img {
+    border-radius: 50%;
+    height: 200px;
+    object-fit: cover;
+    width: 200px;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
