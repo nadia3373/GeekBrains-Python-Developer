@@ -8,6 +8,7 @@ namespace Task
         #region Common
         public static string[] FillArray(string[] arr)
         {
+            // Функция автоматического заполнения массива.
             for (int count = 0; count < arr.Length; count++)
             arr[count] = GenerateString(1, 11);
             return arr;
@@ -15,6 +16,7 @@ namespace Task
 
         public static string[] FilterByLength(string[] arr, int length, string type = "")
         {
+            // Функция фильтрации элементов искомой длины и записи их в новый массив.
             string[] output = type == "" ? new string[0] : new string[CountStrings(arr, length)];
             if (type == "")
             {
@@ -41,6 +43,7 @@ namespace Task
 
         public static string GenerateString(int min, int max)
         {
+            // Функция генерации строки.
             Random random = new Random();
             string str = String.Empty;
             for (int length = random.Next(min, max); length > 0; length--) str += (char)random.Next(33, 127);
@@ -49,6 +52,7 @@ namespace Task
 
         public static void Hashes()
         {
+            // Печать хэштегов после выполнения программы.
             Console.WriteLine("\n");
             for (int count = 0; count < Console.WindowWidth; count++) Console.Write("#");
             Console.WriteLine("\n");
@@ -56,16 +60,18 @@ namespace Task
 
         public static void PrintArray(string[] arr)
         {
+            // Печать элементов массива.
             int size = arr.Length;
             Console.Write("[");
             for (int count = 0; count < size; count++) Console.Write($"{(count == size - 1 ? $"\"{arr[count]}\"" : $"\"{arr[count]}\", ")}");
             Console.Write("]");
         }
 
-        public static string[] TakeInput(int variant = 0)
+        public static string[] GetArray(int variant = 0)
         {
+            // Выбор типа заполнения массива и заполнение массива.
             string[] source = Array.Empty<string>();
-            Console.Write("Каким образом заполнить массив? Нажмите Space, чтобы заполнить автоматически, Enter – чтобы заполнить вручную: ");
+            Console.Write("Каким образом заполнить массив? Нажмите Enter, чтобы заполнить вручную, любую другую клавишу – чтобы заполнить автоматически.");
             if (Console.ReadKey().Key == ConsoleKey.Enter)
             {
                 Console.Write("\nВведите строки через пробел: ");
@@ -83,6 +89,7 @@ namespace Task
         #region Variant2
         public static int CountStrings(string[] arr, int length)
         {
+            // Подсчёт строк искомой длины.
             int count = 0;
             for (int index = 0; index < arr.Length; index++)
             if (arr[index].Length <= length) count++;
