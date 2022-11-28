@@ -3,7 +3,7 @@ import time
 
 def sum_digits(n):
     """
-    Функция суммирования цифр
+    Функция суммирования цифр в числе
     """
     sum = power = 0
     while (n * 10 ** (power + 1)) % 10 != 0: power += 1
@@ -11,6 +11,16 @@ def sum_digits(n):
     while n >= 1:
         sum += int(n % 10)
         n //= 10
+    return sum
+
+
+def sum_digits_str(n):
+    """
+    Функция суммирования цифр в строке
+    """
+    sum = 0
+    for i in n:
+        if i.isdigit(): sum += int(i)
     return sum
 
 
