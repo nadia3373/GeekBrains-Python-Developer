@@ -28,6 +28,6 @@ def task3(str, str1):
     print(f"Строка {str} содержит строку {str1} {str.count(str1)} раз(а)")
 
 
-# task1(5)
-# task2(5)
-# task3("hellow world hellow hello", "hello")
+task1(5)
+task2(5)
+task3("hellow world hellow hello", "hello")
