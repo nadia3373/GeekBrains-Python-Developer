@@ -4,12 +4,16 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) { ex2();}
+    public static void main(String[] args) {
+        ex1();
+        ex2();
+    }
 
     private static void ex1() {
         Scanner scan = new Scanner(System.in);
         String name = scan.nextLine();
         System.out.printf("Hello, %s", name);
+        scan.close();
     }
 
     private static void ex2() {
