@@ -2,7 +2,7 @@ from aiogram import Bot, Dispatcher, executor, types
 import logging, models
 
 
-API_TOKEN = "5833765321:AAHlrA3F6OgNk5VHYBG_4QmOsonoM5EfAOQ"
+API_TOKEN = ""
 
 def start():
     logging.basicConfig(filename='log.csv', encoding = "UTF-8", level=logging.INFO)
