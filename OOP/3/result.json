@@ -1,0 +1,140 @@
+[
+    {
+        "id": 1,
+        "name": "Fleamont Potter",
+        "gender": "MAN",
+        "birthDate": "1909-01-01",
+        "deathDate": "1981-01-01",
+        "alive": false,
+        "relations": {
+            "father-in-law": [
+                4
+            ],
+            "father": [
+                3
+            ],
+            "husband": [
+                2
+            ],
+            "grandfather": [
+                5
+            ],
+            "grandfather-in-law": [
+                7
+            ]
+        }
+    },
+    {
+        "id": 2,
+        "name": "Euphemia Potter",
+        "gender": "WOMAN",
+        "birthDate": "1909-01-01",
+        "deathDate": "",
+        "alive": true,
+        "relations": {
+            "mother": [
+                3
+            ],
+            "mother-in-law": [
+                4
+            ],
+            "grandmother-in-law": [
+                7
+            ],
+            "wife": [
+                1
+            ],
+            "grandmother": [
+                5
+            ]
+        }
+    },
+    {
+        "id": 3,
+        "name": "James Potter",
+        "gender": "MAN",
+        "birthDate": "1960-03-27",
+        "deathDate": "",
+        "alive": true,
+        "relations": {
+            "father-on-law": [
+                7
+            ],
+            "son": [
+                1,
+                2
+            ],
+            "father": [
+                5
+            ],
+            "husband": [
+                4
+            ]
+        }
+    },
+    {
+        "id": 4,
+        "name": "Lily Potter",
+        "gender": "WOMAN",
+        "birthDate": "1960-01-30",
+        "deathDate": "",
+        "alive": true,
+        "relations": {
+            "mother": [
+                5
+            ],
+            "mother-in-law": [
+                7
+            ],
+            "daughter-in-law": [
+                1,
+                2
+            ],
+            "wife": [
+                3
+            ]
+        }
+    },
+    {
+        "id": 5,
+        "name": "Harry James Potter",
+        "gender": "MAN",
+        "birthDate": "1980-07-31",
+        "deathDate": "",
+        "alive": true,
+        "relations": {
+            "son": [
+                3,
+                4
+            ],
+            "grandson": [
+                1,
+                2
+            ],
+            "husband": [
+                7
+            ]
+        }
+    },
+    {
+        "id": 7,
+        "name": "Ginny Potter(Weasley)",
+        "gender": "WOMAN",
+        "birthDate": "1981-08-11",
+        "deathDate": "",
+        "alive": true,
+        "relations": {
+            "wife": [
+                5
+            ],
+            "daughter-in-law": [
+                3,
+                4
+            ],
+            "granddaughter-in-law": [
+                1,
+                2
+            ]
+        }
+    }
+]
