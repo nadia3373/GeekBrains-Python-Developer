@@ -9,7 +9,7 @@ BACKPACK_MAX_LOAD = 15.0
 MIN_ITEM_WEIGHT = 0.1
 MAX_ITEM_WEIGHT = 5.0
 MIN_ITEMS_COUNT = 3
-FRIENDS_NAMES = ('Вася', 'Петя', 'Миша')
+FRIENDS_NAMES = ('Вася', 'Петя', 'Миша', 'Ваня', 'Даня')
 HIKING_THINGS = ('нож', 'ложка', 'тарелка', 'хлеб', 'вилка', 'бургер', 'вода')
 HIKING_THINGS_WEIGHT = {
     name: round(random.uniform(MIN_ITEM_WEIGHT, MAX_ITEM_WEIGHT), 2) for name in HIKING_THINGS
@@ -44,44 +44,46 @@ def task8():
     ✔ Какие вещи есть у всех друзей кроме одного и имя того, у кого данная вещь отсутствует
     ✔ Для решения используйте операции с множествами. Код должен расширяться на любое большее количество друзей.
     '''
+
     # Составление словаря из кортежей вещей для каждого участника похода
     belongings = {name: tuple(generate_things()) for name in FRIENDS_NAMES}
 
     # Подсчёт количества каждой взятой вещи.
-    item_counts = Counter()
+    item_counts = {}
     for values in belongings.values():
         for item in values:
+            item_counts.setdefault(item, 0)
             item_counts[item] += 1
-    
-    # Составление множеств всех вещей и вещей, которые есть у всех.
-    all_things = set(item_counts.keys())
-    common_things = all_things.copy()
-    for values in belongings.values():
-        common_things &= set(values)
-    
-    # Множество уникальных вещей.
-    unique_things = {item for item, count in item_counts.items() if count == 1}
 
-    # Множество вещей, которые есть у всех, кроме одного.
-    except_one = {item for item, count in item_counts.items() if count == len(FRIENDS_NAMES) - 1}
+    # Множество всех вещей
+    all_things = set().union(*belongings.values())
+    # Множество вещей, которые есть у каждого
+    common_things = all_things.copy()
+    # Множество вещей, которые есть у всех, кроме одного
     missing = {}
-    for name, values in belongings.items():
-        missing_elements = except_one - set(values)
-        if missing_elements:
-            missing[name] = missing_elements
+    # Множество уникальных вещей
+    unique_things = set()
+    for key, values in belongings.items():
+        exc = all_things.copy() - set(values)
+        unique = set(values)
+        common_things &= set(values)
+        for v in belongings.values():
+            if v != values:
+                exc &= set(v)
+                unique -= set(v)
+        if exc:
+            missing[key] = exc
+        unique_things |= unique
     
     print('ЗАДАНИЕ 8')
     pprint(belongings)
-    print(f'Все взятые вещи: ', end='')
-    print(*all_things, sep=', ')
-    print(f'Вещи, которые есть у каждого: ', end='')
-    print(*common_things, sep=', ')
-    print(f'Уникальные вещи: ', end='')
-    print(*unique_things, sep=', ')
+    print(f'Все взятые вещи:', *all_things)
+    print(f'Вещи, которые есть у каждого:', *common_things)
+    print(f'Уникальные вещи:', *unique_things)
     print(f'Вещи, которые есть у всех, кроме одного: ')
     for name, item in missing.items():
-        print(f"Имя: {name}, предметы: ", end='')
-        print(*missing[name], sep=', ')
+        print(f"{name} – ", end='')
+        print(*item, sep=', ')
     print()
  
 def task1():
